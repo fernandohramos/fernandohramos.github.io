@@ -42,7 +42,7 @@ jobs:
           npm ci
           else
           npm i
-          fi
+          end
       - name: Build
         run: yarn run build
       - name: Setup Pages
