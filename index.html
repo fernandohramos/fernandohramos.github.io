@@ -3,41 +3,51 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="src/style.css">
   <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
-  <title>Vite + TS</title>
+  <title>Fernando Ramos</title>
 </head>
 
 <body>
-  <header class="flex justify-between my-10 mx-16 text-white">
-    <span>Fernando Ramos</span>
-    <div class="flex space-x-10">
-      <span>Home</span>
-      <span>About me</span>
-      <span>Stacks</span>
-      <span>Projects</span>
-      <span>Contact</span>
+  <header class="my-4 xl:my-10 mx-4 xl:mx-16 flex flex-col-reverse gap-4 xl:flex-row text-white">
+    <div class="flex justify-between w-full">
+      <span>Fernando Ramos</span>
+
+      <div
+        class="absolute lg:relative flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-10 top-0 left-0 w-full lg:w-auto bg-background lg:bg-transparent items-center overflow-hidden h-0 lg:h-auto transition-all duration-400"
+        id="menu">
+        <i data-lucide="x" class="block lg:hidden cursor-pointer ml-auto size-10 mt-4 mr-4" onclick="toggleMenu()"></i>
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#aboutme" onclick="toggleMenu()">About me</a>
+        <a href="#stacks" onclick="toggleMenu()">Stacks</a>
+        <a onclick="toggleMenu()">Projects</a>
+        <a onclick="toggleMenu()">Contact</a>
+      </div>
+      <span class="flex gap-2">
+        São Paulo, Brazil
+        <i data-lucide="map-pin" class="text-primary size-5"></i>
+      </span>
     </div>
-    <span class="location">São Paulo, Brazil</span>
+    <i data-lucide="menu" class="block lg:hidden cursor-pointer ml-auto mr-0 size-10" onclick="toggleMenu()"></i>
   </header>
-  <section class="min-h-96 flex items-center justify-center py-60">
-    <div class="w-1/2">
-      <p class="text-7xl text-zinc-600 text-center">
-        Hey, I'm
-        <span class="text-primary">Fernando Ramos</span>
-        and today I work as a
-        <br />
-        <span class="text-primary">frontend developer</span>
-      </p>
-    </div>
+  <section class="py-64 xl:py-60 xl:mx-10 flex items-center justify-center" id="home">
+    <p class="text-3xl xl:text-7xl text-zinc-600 text-center">
+      Hey, I'm
+      <span class="text-primary">Fernando Ramos</span>
+      and today I work as a
+      <br />
+      <span class="text-primary">frontend developer</span>
+    </p>
   </section>
-  <section class="min-h-96 flex flex-col items-center justify-center py-60 mx-60 text-zinc-600 font-medium text-center">
+  <section
+    class="py-40 xl:py-60 xl:mx-128 flex flex-col items-center justify-center text-zinc-600 font-medium text-center"
+    id="aboutme">
     <p class="text-2xl mb-4">
       A little <span class="text-primary">about me</span>
     </p>
-    <p class="text-3xl text-white w-2/4 mb-20">
+    <p class="text-3xl text-white">
       I'm a frontend developer passionate about
       <span class="text-primary">development</span>,
       <span class="text-primary">UI/UX</span>,
@@ -47,12 +57,14 @@
       and <span class="text-primary">sharing knowledge</span>.
     </p>
   </section>
-  <section class="min-h-96 flex flex-col items-center justify-center py-60 mx-60 text-zinc-600 font-medium text-center">
+  <section
+    class="py-40 xl:py-60 xl:mx-128 flex flex-col items-center justify-center text-zinc-600 font-medium text-center"
+    id="stacks">
     <p class="text-2xl mb-4">
       My <span class="text-primary">main</span> stacks
     </p>
     <div
-      class="flex flex-wrap gap-4 justify-center w-1/2 *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
+      class="flex flex-wrap gap-4 justify-center *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
       <div>
         <img src="icons/stacks/html5.svg" alt="HTML5" class="object-cover w-full h-full">
       </div>
@@ -92,7 +104,7 @@
       My <span class="text-primary">main</span> stacks
     </p>
     <div
-      class="flex flex-wrap gap-4 justify-center w-1/2 *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
+      class="flex flex-wrap gap-4 justify-center *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
       <div>
         <img src="icons/stacks/nextjs.svg" alt="NextJS" class="object-cover w-full h-full">
       </div>
@@ -119,6 +131,25 @@
       </div>
     </div>
   </section>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+  <script>
+    function toggleMenu() {
+      if (window.innerWidth >= 1024) return;
+
+      const menuEl = document.getElementById("menu");
+      const menuCurrentHeight = menuEl.offsetHeight;
+
+      if (menuCurrentHeight > 0) {
+        menuEl.style.height = 0
+      } else {
+        menuEl.style.height = "100dvh"
+      }
+    }
+  </script>
 </body>
 
 </html>

@@ -13,7 +13,13 @@ export default {
     },
     extend: {
       colors: {
+        background: "hsl(var(--color-background))",
         primary: "hsl(var(--color-primary))",
+      },
+      spacing: {
+        "112": "28rem",
+        "128": "32rem",
+        "160": "40rem"
       }
     },
   },

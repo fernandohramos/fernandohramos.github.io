@@ -34,3 +34,13 @@ a:hover {
 body {
   margin: 0;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
