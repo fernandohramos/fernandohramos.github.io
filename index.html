@@ -6,149 +6,1005 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="src/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
-  <title>Fernando Ramos</title>
+  <title>Fernando Ramos — Frontend Engineer</title>
 </head>
 
-<body>
-  <header class="my-4 xl:my-10 mx-4 xl:mx-16 flex flex-col-reverse gap-4 xl:flex-row text-white">
-    <div class="flex justify-between w-full">
-      <span>Fernando Ramos</span>
+<body class="font-sans text-white antialiased overflow-x-hidden">
 
-      <div
-        class="absolute lg:relative flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-10 top-0 left-0 w-full lg:w-auto bg-background lg:bg-transparent items-center overflow-hidden h-0 lg:h-auto transition-all duration-400"
-        id="menu">
-        <i data-lucide="x" class="block lg:hidden cursor-pointer ml-auto size-10 mt-4 mr-4" onclick="toggleMenu()"></i>
-        <a href="#home" onclick="toggleMenu()">Home</a>
-        <a href="#aboutme" onclick="toggleMenu()">About me</a>
-        <a href="#stacks" onclick="toggleMenu()">Stacks</a>
-        <a onclick="toggleMenu()">Projects</a>
-        <a onclick="toggleMenu()">Contact</a>
-      </div>
-      <span class="flex gap-2">
-        São Paulo, Brazil
-        <i data-lucide="map-pin" class="text-primary size-5"></i>
-      </span>
-    </div>
-    <i data-lucide="menu" class="block lg:hidden cursor-pointer ml-auto mr-0 size-10" onclick="toggleMenu()"></i>
-  </header>
-  <section class="py-64 xl:py-60 xl:mx-10 flex items-center justify-center" id="home">
-    <p class="text-3xl xl:text-7xl text-zinc-600 text-center">
-      Hey, I'm
-      <span class="text-primary">Fernando Ramos</span>
-      and today I work as a
-      <br />
-      <span class="text-primary">frontend developer</span>
-    </p>
-  </section>
-  <section
-    class="py-40 xl:py-60 xl:mx-128 flex flex-col items-center justify-center text-zinc-600 font-medium text-center"
-    id="aboutme">
-    <p class="text-2xl mb-4">
-      A little <span class="text-primary">about me</span>
-    </p>
-    <p class="text-3xl text-white">
-      I'm a frontend developer passionate about
-      <span class="text-primary">development</span>,
-      <span class="text-primary">UI/UX</span>,
-      <span class="text-primary">architecture</span>,
-      <span class="text-primary">new technologies</span>,
-      <span class="text-primary">design systems</span>,
-      and <span class="text-primary">sharing knowledge</span>.
-    </p>
-  </section>
-  <section
-    class="py-40 xl:py-60 xl:mx-128 flex flex-col items-center justify-center text-zinc-600 font-medium text-center"
-    id="stacks">
-    <p class="text-2xl mb-4">
-      My <span class="text-primary">main</span> stacks
-    </p>
-    <div
-      class="flex flex-wrap gap-4 justify-center *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
-      <div>
-        <img src="icons/stacks/html5.svg" alt="HTML5" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/css3.svg" alt="CSS3" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/tailwind.svg" alt="Tailwind" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/materialui.svg" alt="MaterialUI" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/js.svg" alt="Javascript" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/reactjs.svg" alt="ReactJS" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/nodejs.svg" alt="NodeJS" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/mongodb.svg" alt="MongoDB" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/mongoose.svg" alt="Mongoose" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/github.svg" alt="GitHub" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/gitlab.svg" alt="GitLab" class="object-cover w-full h-full">
+  <!-- ===== NAVBAR ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+            <span class="text-primary font-bold text-sm">FR</span>
+          </div>
+          <span class="font-semibold text-white hidden sm:block">Fernando Ramos</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#stacks" class="nav-link">Tech Stack</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- CTA + mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="/fernando-ramos-cv.pdf" download="Fernando_Ramos_CV.pdf" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors">
+            Get Resume
+            <i data-lucide="download" class="size-4"></i>
+          </a>
+          <button id="menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white transition-colors" aria-label="Toggle menu">
+            <i data-lucide="menu" class="size-6" id="menu-icon"></i>
+          </button>
+        </div>
       </div>
     </div>
 
-    <p class="text-2xl mb-4 mt-20">
-      My <span class="text-primary">main</span> stacks
-    </p>
-    <div
-      class="flex flex-wrap gap-4 justify-center *:relative *:w-24 *:h-24 *:p-5 *:rounded-full *:transition-all *:duration-500 hover:*:bg-zinc-300/10 hover:*:scale-125">
-      <div>
-        <img src="icons/stacks/nextjs.svg" alt="NextJS" class="object-cover w-full h-full">
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-white/10 bg-background/95 backdrop-blur-md">
+      <div class="px-4 py-4 flex flex-col gap-3">
+        <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+        <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">About</a>
+        <a href="#stacks" class="mobile-nav-link" onclick="closeMobileMenu()">Tech Stack</a>
+        <a href="#projects" class="mobile-nav-link" onclick="closeMobileMenu()">Projects</a>
+        <a href="#experience" class="mobile-nav-link" onclick="closeMobileMenu()">Experience</a>
+        <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+        <a href="/fernando-ramos-cv.pdf" download="Fernando_Ramos_CV.pdf" class="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors mt-2" onclick="closeMobileMenu()">
+          Get Resume <i data-lucide="download" class="size-4"></i>
+        </a>
       </div>
-      <div>
-        <img src="icons/stacks/angular.svg" alt="Angular" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/php.svg" alt="PHP" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/laravel.svg" alt="Laravel" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/mysql.svg" alt="MySQL" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/postgresql.svg" alt="PostgreSQL" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/cypress.svg" alt="Cypress" class="object-cover w-full h-full">
-      </div>
-      <div>
-        <img src="icons/stacks/jest.svg" alt="Jest" class="object-cover w-full h-full">
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-16">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-end justify-center pointer-events-none select-none overflow-hidden">
+      <span class="watermark-text">PORTFOLIO</span>
+    </div>
+    <!-- Grid bg -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 lg:py-0">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left content -->
+        <div class="order-2 lg:order-1">
+          <p class="text-zinc-500 text-sm font-medium mb-4 flex items-center gap-2">
+            <span class="text-primary">✦</span> Scalable UIs, pixel-perfect components, delightful experiences.
+          </p>
+          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-white mb-6">
+            Frontend
+            <span class="text-primary">Built<br class="hidden sm:block"/>
+            for Scale</span> and Users.
+          </h1>
+          <p class="text-zinc-400 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
+            Hi, I'm <span class="text-white font-medium">Fernando Ramos</span> — Frontend Engineer with 5+ years of
+            hands-on experience in <span class="text-primary font-medium">ReactJS</span> and
+            <span class="text-primary font-medium">TypeScript</span>, specializing in scalable,
+            user-centric web applications.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-10">
+            <a href="#projects" class="flex items-center gap-2 px-5 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm">
+              View Projects
+              <i data-lucide="external-link" class="size-4"></i>
+            </a>
+            <a href="/fernando-ramos-cv.pdf" download="Fernando_Ramos_CV.pdf" class="flex items-center gap-2 px-5 py-3 border border-white/20 text-white font-medium rounded-lg hover:border-primary/60 hover:bg-primary/5 transition-colors text-sm">
+              Get Resume
+              <i data-lucide="download" class="size-4"></i>
+            </a>
+          </div>
+          <!-- Core tech pills — frontend-first -->
+          <div class="flex flex-wrap gap-2 text-zinc-400 text-xs font-medium">
+            <span class="pill-primary">ReactJS</span>
+            <span class="pill-primary">TypeScript</span>
+            <span class="pill-primary">Next.js</span>
+            <span class="pill-default">React Native</span>
+            <span class="pill-default">Node.js</span>
+            <span class="pill-default">Jest / Cypress</span>
+            <span class="pill-default">Figma</span>
+          </div>
+        </div>
+
+        <!-- Right — profile card -->
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div class="relative w-72 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem]">
+            <!-- Glow -->
+            <div class="absolute inset-0 bg-primary/20 rounded-2xl blur-3xl"></div>
+            <!-- Frame -->
+            <div class="relative w-full h-full rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 to-transparent overflow-hidden flex items-end justify-center">
+              <div class="absolute top-4 right-4 flex gap-1.5">
+                <div class="w-2 h-2 rounded-full bg-primary/60"></div>
+                <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+                <div class="w-2 h-2 rounded-full bg-primary/20"></div>
+              </div>
+              <!-- Avatar area -->
+              <div class="flex flex-col items-center pb-8 gap-3">
+                <div class="w-24 h-24 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center">
+                  <i data-lucide="user" class="size-12 text-primary/60"></i>
+                </div>
+                <div class="text-center">
+                  <p class="text-white font-semibold">Fernando H. Ramos</p>
+                  <p class="text-primary text-sm">Frontend Engineer · 5+ yrs React/TS</p>
+                  <p class="text-zinc-500 text-xs mt-1 flex items-center justify-center gap-1">
+                    <i data-lucide="map-pin" class="size-3"></i> Marília, São Paulo, Brazil
+                  </p>
+                </div>
+                <!-- Mini stats -->
+                <div class="flex gap-6 mt-1">
+                  <div class="text-center">
+                    <p class="text-white font-bold text-lg leading-none">7+</p>
+                    <p class="text-zinc-500 text-xs mt-0.5">Yrs in Market</p>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-white font-bold text-lg leading-none">5</p>
+                    <p class="text-zinc-500 text-xs mt-0.5">Companies</p>
+                  </div>
+                  <div class="text-center">
+                    <p class="text-white font-bold text-lg leading-none">EN/PT</p>
+                    <p class="text-zinc-500 text-xs mt-0.5">Languages</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Floating badge -->
+              <div class="absolute top-6 left-6 px-3 py-1.5 bg-background/80 border border-primary/30 rounded-full text-xs text-primary font-medium backdrop-blur-sm">
+                ● Open to opportunities
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="relative py-24 lg:py-36 overflow-hidden">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="watermark-text">ABOUT</span>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left — skill highlight cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8 lg:mt-20">
+          <div class="skill-card">
+            <i data-lucide="layout-dashboard" class="size-8 text-primary mb-3"></i>
+            <h3 class="text-primary font-semibold mb-2">Design Systems:</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Reusable component libraries in ReactJS + TypeScript. Collaborated directly with UI/UX designers using Figma.</p>
+            <a href="#stacks" class="text-primary text-xs mt-3 inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Tech Stack <i data-lucide="arrow-right" class="size-3"></i>
+            </a>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="shield-check" class="size-8 text-primary mb-3"></i>
+            <h3 class="text-primary font-semibold mb-2">Testing & Quality:</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Jest, React Testing Library, Cypress, Playwright. Led unit and e2e testing strategies that reduced production bugs.</p>
+            <a href="#stacks" class="text-primary text-xs mt-3 inline-flex items-center gap-1 hover:gap-2 transition-all">
+              Tech Stack <i data-lucide="arrow-right" class="size-3"></i>
+            </a>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="bar-chart-3" class="size-8 text-primary mb-3"></i>
+            <h3 class="text-primary font-semibold mb-2">Data Visualization:</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Large-scale data virtualization and handling. Transformed API-only data into intuitive Big Data platforms.</p>
+          </div>
+          <div class="skill-card">
+            <i data-lucide="git-branch" class="size-8 text-primary mb-3"></i>
+            <h3 class="text-primary font-semibold mb-2">CI/CD & Tooling:</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed">Git, Webpack, Vite, CI/CD Pipelines. Full SDLC participation from architecture to deployment.</p>
+          </div>
+        </div>
+
+        <!-- Right — bio text -->
+        <div>
+          <p class="text-primary text-xs font-semibold uppercase tracking-widest mb-3">— About Me</p>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6">WHO AM I?</h2>
+          <p class="text-zinc-400 leading-relaxed mb-5">
+            I'm a <span class="text-white">Frontend Engineer with 5+ years of experience</span> in ReactJS and TypeScript,
+            focused on building scalable, user-centric web applications. I've proven the ability to deliver
+            high-impact features, optimize user experiences, and significantly enhance development efficiency
+            through contributions to Design Systems and robust testing strategies.
+          </p>
+          <p class="text-zinc-400 leading-relaxed mb-8">
+            I also possess a solid understanding of backend technologies (NodeJS, PHP) and full-stack
+            development principles, allowing me to partner effectively with cross-functional teams.
+            I'm especially passionate about <span class="text-white">large-scale data visualization and handling</span>,
+            enabling intuitive access to complex datasets.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <div class="flex items-center gap-2 text-zinc-400 text-sm">
+              <i data-lucide="mail" class="size-4 text-primary flex-shrink-0"></i>
+              <span>fernando.hnramos@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-2 text-zinc-400 text-sm">
+              <i data-lucide="map-pin" class="size-4 text-primary flex-shrink-0"></i>
+              <span>Marília, SP, Brazil</span>
+            </div>
+            <div class="flex items-center gap-2 text-zinc-400 text-sm">
+              <i data-lucide="globe" class="size-4 text-primary flex-shrink-0"></i>
+              <span>English (Intermediate) · Portuguese (Native)</span>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <a href="mailto:fernando.hnramos@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm">
+              Get in Touch <i data-lucide="send" class="size-4"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fernandohnramos" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-3 border border-white/20 text-zinc-300 font-medium rounded-lg hover:border-primary/60 hover:bg-primary/5 transition-colors text-sm">
+              LinkedIn <i data-lucide="linkedin" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section id="stacks" class="relative py-24 lg:py-36 overflow-hidden">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="watermark-text">TECH STACK</span>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-primary text-xs font-semibold uppercase tracking-widest mb-3">— Tech Stack</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-white">TECH STACK &amp; TOOLS</h2>
+      </div>
+
+      <!-- Primary frontend row — given extra visual weight -->
+      <div class="mb-6">
+        <p class="text-zinc-600 text-xs uppercase tracking-widest mb-4 text-center">Core — Frontend</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+
+          <!-- Languages & Frameworks (main) -->
+          <div class="stack-category-card ring-1 ring-primary/20">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-2 rounded-lg bg-primary/20 border border-primary/30">
+                <i data-lucide="code-2" class="size-5 text-primary"></i>
+              </div>
+              <h3 class="font-semibold text-white">Languages &amp; Frameworks</h3>
+              <span class="ml-auto text-xs text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full">Primary</span>
+            </div>
+            <ul class="space-y-2 text-zinc-300 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="text-white font-medium">ReactJS / Next.js / React Native</span></li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="text-white font-medium">TypeScript / JavaScript (ES6+)</span></li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>HTML5 / CSS3</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Material UI / ShadCN / Tanstack</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-zinc-600"></span><span class="text-zinc-500">NodeJS / PHP / Laravel / C# (supporting)</span></li>
+            </ul>
+          </div>
+
+          <!-- Testing & QA (highlighted) -->
+          <div class="stack-category-card ring-1 ring-primary/20">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-2 rounded-lg bg-primary/20 border border-primary/30">
+                <i data-lucide="shield-check" class="size-5 text-primary"></i>
+              </div>
+              <h3 class="font-semibold text-white">Testing &amp; QA</h3>
+              <span class="ml-auto text-xs text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full">Primary</span>
+            </div>
+            <ul class="space-y-2 text-zinc-300 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="text-white font-medium">Jest / React Testing Library</span></li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span class="text-white font-medium">Cypress / Playwright</span></li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Unit, Integration &amp; E2E Testing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>TDD Practices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary row -->
+      <div>
+        <p class="text-zinc-600 text-xs uppercase tracking-widest mb-4 text-center">Supporting &amp; Tools</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Tools & Platforms -->
+          <div class="stack-category-card">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                <i data-lucide="wrench" class="size-5 text-primary"></i>
+              </div>
+              <h3 class="font-semibold text-white">Tools &amp; Platforms</h3>
+            </div>
+            <ul class="space-y-2 text-zinc-400 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Git / GitHub / GitLab</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Webpack / Vite</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>CI/CD Pipelines</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Figma (UI/UX Collab.)</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Jira / Agile / Scrum</li>
+            </ul>
+          </div>
+
+          <!-- Databases -->
+          <div class="stack-category-card">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                <i data-lucide="database" class="size-5 text-primary"></i>
+              </div>
+              <h3 class="font-semibold text-white">Databases</h3>
+            </div>
+            <ul class="space-y-2 text-zinc-400 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>MongoDB</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>MySQL / PostgreSQL</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>RESTful APIs</li>
+            </ul>
+          </div>
+
+          <!-- Concepts -->
+          <div class="stack-category-card">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                <i data-lucide="lightbulb" class="size-5 text-primary"></i>
+              </div>
+              <h3 class="font-semibold text-white">Concepts</h3>
+            </div>
+            <ul class="space-y-2 text-zinc-400 text-sm">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Design Systems</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Software Architecture</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Data Visualization</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Large-scale Data Virtualization</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>Responsive Design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Icon grid -->
+      <div class="mt-16 flex flex-wrap justify-center gap-6">
+        <div class="stack-icon-item before:bg-sky-900/40">
+          <img src="icons/stacks/reactjs.svg" alt="React" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-yellow-900/40">
+          <img src="icons/stacks/js.svg" alt="JavaScript" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-white/10">
+          <img src="icons/stacks/nextjs.svg" alt="Next.js" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-orange-900/40">
+          <img src="icons/stacks/html5.svg" alt="HTML5" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-blue-900/40">
+          <img src="icons/stacks/css3.svg" alt="CSS3" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-sky-900/40">
+          <img src="icons/stacks/tailwind.svg" alt="Tailwind" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-sky-900/40">
+          <img src="icons/stacks/materialui.svg" alt="Material UI" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-lime-900/40">
+          <img src="icons/stacks/nodejs.svg" alt="Node.js" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-pink-900/40">
+          <img src="icons/stacks/jest.svg" alt="Jest" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-emerald-900/40">
+          <img src="icons/stacks/cypress.svg" alt="Cypress" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-green-900/40">
+          <img src="icons/stacks/mongodb.svg" alt="MongoDB" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-cyan-900/40">
+          <img src="icons/stacks/mysql.svg" alt="MySQL" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-blue-900/40">
+          <img src="icons/stacks/postgresql.svg" alt="PostgreSQL" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-blue-900/40">
+          <img src="icons/stacks/php.svg" alt="PHP" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-red-900/40">
+          <img src="icons/stacks/laravel.svg" alt="Laravel" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-red-900/40">
+          <img src="icons/stacks/angular.svg" alt="Angular" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-white/10">
+          <img src="icons/stacks/github.svg" alt="GitHub" class="w-full h-full object-contain">
+        </div>
+        <div class="stack-icon-item before:bg-orange-900/40">
+          <img src="icons/stacks/gitlab.svg" alt="GitLab" class="w-full h-full object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="relative py-24 lg:py-36 overflow-hidden">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="watermark-text">PROJECTS</span>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-primary text-xs font-semibold uppercase tracking-widest mb-3">— Projects</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-white">FEATURED PROJECTS</h2>
+        <p class="text-zinc-500 text-sm mt-3">Personal projects — visit my GitHub for more</p>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Project 1 — highlighted -->
+        <div class="project-item group border-primary/40 bg-primary/5">
+          <div class="flex items-center gap-4 flex-1 min-w-0">
+            <span class="text-primary text-sm font-mono flex-shrink-0">01</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-primary font-semibold truncate">
+                BIG DATA PLATFORM — INTUITIVE DATA EXPLORER
+              </h3>
+              <p class="text-zinc-500 text-xs mt-1 mb-1.5">Transformed complex API-only data access into a user-friendly Big Data platform for non-technical operational users.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Data Visualization</span>
+                <span class="project-tag">C#</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="project-link-btn border-primary/40 text-primary hover:bg-primary/20" aria-label="GitHub">
+              <i data-lucide="github" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 — highlighted -->
+        <div class="project-item group border-primary/40 bg-primary/5">
+          <div class="flex items-center gap-4 flex-1 min-w-0">
+            <span class="text-primary text-sm font-mono flex-shrink-0">02</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-primary font-semibold truncate">
+                PAYMENTS &amp; ACCOUNT MANAGEMENT PLATFORM
+              </h3>
+              <p class="text-zinc-500 text-xs mt-1 mb-1.5">Core features for client-facing and employee-facing interfaces. Design System component library with unit testing strategies.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Design System</span>
+                <span class="project-tag">Jest</span>
+                <span class="project-tag">React Testing Library</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="project-link-btn border-primary/40 text-primary hover:bg-primary/20" aria-label="GitHub">
+              <i data-lucide="github" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-item group">
+          <div class="flex items-center gap-4 flex-1 min-w-0">
+            <span class="text-zinc-600 text-sm font-mono flex-shrink-0">03</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-white font-semibold group-hover:text-primary transition-colors truncate">
+                REAL-TIME CUSTOMER SERVICE APPLICATION
+              </h3>
+              <p class="text-zinc-500 text-xs mt-1 mb-1.5">Real-time WebSocket communication between customer representatives and end-users, supporting sales operations.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">AngularJS</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">PostgreSQL</span>
+                <span class="project-tag">Socket.io</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+              <i data-lucide="github" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-item group">
+          <div class="flex items-center gap-4 flex-1 min-w-0">
+            <span class="text-zinc-600 text-sm font-mono flex-shrink-0">04</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-white font-semibold group-hover:text-primary transition-colors truncate">
+                BESPOKE WEB APPLICATIONS — CLIENT PORTFOLIO
+              </h3>
+              <p class="text-zinc-500 text-xs mt-1 mb-1.5">Full-stack custom applications for a diverse client base, managing full lifecycle from concept to deployment.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">React</span>
+                <span class="project-tag">PHP</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Full-Stack</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+              <i data-lucide="github" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-item group">
+          <div class="flex items-center gap-4 flex-1 min-w-0">
+            <span class="text-zinc-600 text-sm font-mono flex-shrink-0">05</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-white font-semibold group-hover:text-primary transition-colors truncate">
+                THIS PORTFOLIO — fernandohramos.github.io
+              </h3>
+              <p class="text-zinc-500 text-xs mt-1 mb-1.5">Personal portfolio built with Vite, Tailwind CSS v3 and vanilla TypeScript. Responsive, accessible, and fast.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">Vite</span>
+                <span class="project-tag">HTML5</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 flex-shrink-0">
+            <a href="https://github.com/fernandohramos/fernandohramos.github.io" target="_blank" rel="noopener" class="project-link-btn" aria-label="GitHub">
+              <i data-lucide="github" class="size-4"></i>
+            </a>
+            <a href="https://fernandohramos.github.io" target="_blank" rel="noopener" class="project-link-btn" aria-label="Live site">
+              <i data-lucide="external-link" class="size-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 flex justify-center">
+        <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-zinc-400 hover:text-primary transition-colors text-sm">
+          <i data-lucide="github" class="size-4"></i>
+          See more on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="relative py-24 lg:py-36 overflow-hidden">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <span class="watermark-text">EXPERIENCE</span>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-primary text-xs font-semibold uppercase tracking-widest mb-3">— Experience</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-white">EXPERIENCE &amp; EDUCATION</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12">
+
+        <!-- Work Experience -->
+        <div>
+          <h3 class="flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-8">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            Work Experience
+          </h3>
+
+          <div class="space-y-8">
+
+            <!-- BigDataCorp -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <h4 class="text-white font-semibold">Frontend Developer</h4>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">Jun 2023 – Present</span>
+              </div>
+              <p class="text-primary text-sm font-medium mb-3">BigDataCorp · Rio de Janeiro, RJ</p>
+              <ul class="space-y-1.5 text-zinc-500 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Transformed complex API-only access into an intuitive Big Data platform for non-technical users.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Led account management features, enhancing user control and reducing support inquiries.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Implemented comprehensive e2e testing with Cypress, ensuring high-quality stable releases.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Involved in full SDLC, from architectural design to frontend and backend (NodeJS, C#) components.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="cert-badge">React</span><span class="cert-badge">TypeScript</span><span class="cert-badge">Cypress</span><span class="cert-badge">NodeJS</span><span class="cert-badge">C#</span>
+              </div>
+            </div>
+
+            <!-- Vindi -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <h4 class="text-white font-semibold">Frontend Developer</h4>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">Nov 2020 – Apr 2023</span>
+              </div>
+              <p class="text-primary text-sm font-medium mb-3">Vindi · São Paulo, SP</p>
+              <ul class="space-y-1.5 text-zinc-500 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Shaped UX of critical payments and account management platforms for clients and employees.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Co-built a reusable UI component library (Design System) in ReactJS + TypeScript with UI/UX designers.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Spearheaded unit testing with Jest and React Testing Library, noticeably reducing production bugs.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Actively participated in Kanban / Scrum ceremonies in an agile team environment.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="cert-badge">React</span><span class="cert-badge">TypeScript</span><span class="cert-badge">Design System</span><span class="cert-badge">Jest</span><span class="cert-badge">RTL</span>
+              </div>
+            </div>
+
+            <!-- Eficaz -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <h4 class="text-white font-semibold">Full-Stack Developer</h4>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">Feb 2020 – Nov 2020</span>
+              </div>
+              <p class="text-primary text-sm font-medium mb-3">Eficaz Marketing · Marília, SP</p>
+              <ul class="space-y-1.5 text-zinc-500 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Built bespoke web applications for a diverse client portfolio in a dynamic software house.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Managed full project lifecycle, from requirements to deployment with strict client timelines.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Leveraged PHP, ReactJS, and NodeJS to deliver robust, scalable client solutions.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="cert-badge">React</span><span class="cert-badge">PHP</span><span class="cert-badge">Node.js</span>
+              </div>
+            </div>
+
+            <!-- Cuca Fresca -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <h4 class="text-white font-semibold">Full-Stack Developer</h4>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">Apr 2019 – Feb 2020</span>
+              </div>
+              <p class="text-primary text-sm font-medium mb-3">Cuca Fresca LTDA · Marília, SP</p>
+              <ul class="space-y-1.5 text-zinc-500 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Built a real-time customer service app with AngularJS frontend and NodeJS + PostgreSQL backend.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Integrated WebSocket (socket.io) for seamless real-time communication, improving resolution times.</li>
+              </ul>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="cert-badge">AngularJS</span><span class="cert-badge">Node.js</span><span class="cert-badge">PostgreSQL</span><span class="cert-badge">Socket.io</span>
+              </div>
+            </div>
+
+            <!-- Vooxer -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <h4 class="text-white font-semibold">Intern Full-Stack Developer</h4>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">Jul 2018 – Apr 2019</span>
+              </div>
+              <p class="text-primary text-sm font-medium mb-3">Vooxer · Marília, SP</p>
+              <ul class="space-y-1.5 text-zinc-500 text-sm leading-relaxed">
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Entry into software development, building full-stack web systems for various clients in a startup.</li>
+                <li class="flex gap-2"><span class="text-primary mt-1 flex-shrink-0">›</span>Contributed to both backend and frontend components, laying the foundation for software architecture.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Education + Languages -->
+        <div>
+          <h3 class="flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-8">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            Education
+          </h3>
+
+          <div class="space-y-8">
+
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="flex justify-between items-start gap-4 mb-1">
+                <div>
+                  <h4 class="text-white font-semibold">Associate's Degree</h4>
+                  <p class="text-primary text-sm font-medium">Analysis and Systems Development</p>
+                </div>
+                <span class="text-zinc-500 text-xs flex-shrink-0 bg-white/5 px-2 py-1 rounded">2020</span>
+              </div>
+              <p class="text-zinc-500 text-sm mt-2 flex items-center gap-1">
+                <i data-lucide="graduation-cap" class="size-3 text-primary"></i>
+                Unimar — Marília, SP, Brazil
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Languages spoken -->
+          <div class="mt-10">
+            <h3 class="flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest mb-6">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              Languages
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl">🇧🇷</span>
+                  <div>
+                    <p class="text-white text-sm font-medium">Portuguese</p>
+                    <p class="text-zinc-500 text-xs">Native</p>
+                  </div>
+                </div>
+                <div class="flex gap-1">
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl">🇺🇸</span>
+                  <div>
+                    <p class="text-white text-sm font-medium">English</p>
+                    <p class="text-zinc-500 text-xs">Intermediate</p>
+                  </div>
+                </div>
+                <div class="flex gap-1">
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-primary"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-zinc-700"></span>
+                  <span class="w-5 h-1.5 rounded-full bg-zinc-700"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Key numbers -->
+          <div class="mt-10 grid grid-cols-2 gap-4">
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5 text-center">
+              <p class="text-4xl font-black text-primary mb-1">7+</p>
+              <p class="text-zinc-400 text-sm">Years in Market</p>
+            </div>
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5 text-center">
+              <p class="text-4xl font-black text-primary mb-1">5+</p>
+              <p class="text-zinc-400 text-sm">yrs React / TypeScript</p>
+            </div>
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5 text-center">
+              <p class="text-4xl font-black text-primary mb-1">4</p>
+              <p class="text-zinc-400 text-sm">Testing Tools</p>
+            </div>
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5 text-center">
+              <p class="text-4xl font-black text-primary mb-1">∞</p>
+              <p class="text-zinc-400 text-sm">Coffee Consumed</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="relative py-24 lg:py-36 overflow-hidden">
+    <!-- Watermark -->
+    <div class="absolute inset-0 flex items-end justify-center pointer-events-none select-none overflow-hidden pb-4">
+      <span class="watermark-text">CONTACT</span>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Left — CTA text -->
+        <div>
+          <p class="text-primary text-xs font-semibold uppercase tracking-widest mb-4">— Let's Talk</p>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+            LET'S BUILD SOMETHING <span class="text-primary">GREAT</span> TOGETHER
+          </h2>
+          <p class="text-zinc-400 leading-relaxed mb-8">
+            Whether you need help building a product from scratch, optimizing an
+            existing system, or just want to discuss ideas — my inbox is always open.
+          </p>
+          <a href="mailto:fernando.hnramos@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm mb-10">
+            Say Hello <i data-lucide="send" class="size-4"></i>
+          </a>
+
+          <!-- Contact info -->
+          <div class="space-y-3">
+            <a href="mailto:fernando.hnramos@gmail.com" class="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors text-sm group">
+              <div class="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-primary/30 transition-colors">
+                <i data-lucide="mail" class="size-4 text-primary"></i>
+              </div>
+              fernando.hnramos@gmail.com
+            </a>
+            <div class="flex items-center gap-3 text-zinc-400 text-sm">
+              <div class="p-2 rounded-lg bg-white/5 border border-white/10">
+                <i data-lucide="map-pin" class="size-4 text-primary"></i>
+              </div>
+              Marília, State of São Paulo, Brazil
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div class="flex gap-3 mt-8">
+            <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <i data-lucide="github" class="size-5"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fernandohnramos" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="size-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right — Form -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
+          <h3 class="text-white font-semibold text-lg mb-6">Send a message</h3>
+          <form class="space-y-4" id="contact-form" onsubmit="handleFormSubmit(event)">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-zinc-400 text-xs mb-1.5">Name</label>
+                <input type="text" name="name" placeholder="Your name" class="form-input" required />
+              </div>
+              <div>
+                <label class="block text-zinc-400 text-xs mb-1.5">Email</label>
+                <input type="email" name="email" placeholder="your@email.com" class="form-input" required />
+              </div>
+            </div>
+            <div>
+              <label class="block text-zinc-400 text-xs mb-1.5">Subject</label>
+              <input type="text" name="subject" placeholder="How can I help you?" class="form-input" />
+            </div>
+            <div>
+              <label class="block text-zinc-400 text-xs mb-1.5">Message</label>
+              <textarea rows="5" name="message" placeholder="Tell me about your project..." class="form-input resize-none" required></textarea>
+            </div>
+            <!-- Status message -->
+            <p id="form-status" class="hidden text-sm text-center py-2 px-4 rounded-lg"></p>
+            <button type="submit" id="form-btn" class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors text-sm">
+              Send Message <i data-lucide="send" class="size-4"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center">
+          <span class="text-primary font-bold text-xs">FR</span>
+        </div>
+        <span class="text-zinc-500 text-sm">Fernando Henrique do Nascimento Ramos</span>
+      </div>
+      <p class="text-zinc-600 text-xs text-center">
+        © 2025 Fernando Ramos. All rights reserved.
+      </p>
+      <div class="flex gap-3">
+        <a href="https://github.com/fernandohramos" target="_blank" rel="noopener" class="text-zinc-600 hover:text-primary transition-colors" aria-label="GitHub">
+          <i data-lucide="github" class="size-4"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/fernandohnramos" target="_blank" rel="noopener" class="text-zinc-600 hover:text-primary transition-colors" aria-label="LinkedIn">
+          <i data-lucide="linkedin" class="size-4"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>
   <script>
-    function toggleMenu() {
-      if (window.innerWidth >= 1024) return;
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    let menuOpen = false;
 
-      const menuEl = document.getElementById("menu");
-      const menuCurrentHeight = menuEl.offsetHeight;
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      menuIcon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+      lucide.createIcons();
+    });
 
-      if (menuCurrentHeight > 0) {
-        menuEl.style.height = 0
-      } else {
-        menuEl.style.height = "100dvh"
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      menuIcon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMobileMenu();
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('text-white');
+            link.classList.add('text-zinc-400');
+            if (link.getAttribute('href') === '#' + entry.target.id) {
+              link.classList.remove('text-zinc-400');
+              link.classList.add('text-white');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Form submit — Formspree integration
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const form   = e.target;
+      const btn    = document.getElementById('form-btn');
+      const status = document.getElementById('form-status');
+
+      // Loading state
+      btn.disabled = true;
+      btn.innerHTML = '<svg class="animate-spin size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg> Sending…';
+
+      try {
+        const response = await fetch('https://formspree.io/f/mbgljbaw', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+
+        if (response.ok) {
+          // Success
+          status.textContent = '✓ Message sent! I\'ll get back to you soon.';
+          status.className = 'text-sm text-center py-2 px-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400';
+          form.reset();
+          btn.innerHTML = '✓ Sent! <i data-lucide="check" class="size-4 inline ml-1"></i>';
+          btn.classList.replace('bg-primary', 'bg-green-600');
+          btn.classList.remove('hover:bg-primary/90');
+          lucide.createIcons();
+
+          setTimeout(() => {
+            status.className = 'hidden';
+            btn.disabled = false;
+            btn.innerHTML = 'Send Message <i data-lucide="send" class="size-4 inline ml-2"></i>';
+            btn.classList.replace('bg-green-600', 'bg-primary');
+            btn.classList.add('hover:bg-primary/90');
+            lucide.createIcons();
+          }, 4000);
+        } else {
+          // Formspree returned an error
+          const data = await response.json();
+          const msg = data?.errors?.map(err => err.message).join(', ') || 'Something went wrong. Please try again.';
+          throw new Error(msg);
+        }
+      } catch (err) {
+        status.textContent = '✗ ' + err.message;
+        status.className = 'text-sm text-center py-2 px-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400';
+        btn.disabled = false;
+        btn.innerHTML = 'Try Again <i data-lucide="send" class="size-4 inline ml-2"></i>';
+        btn.classList.replace('bg-green-600', 'bg-primary');
+        btn.classList.add('hover:bg-primary/90');
+        lucide.createIcons();
       }
     }
+
+    // Animate on scroll
+    const animatedEls = document.querySelectorAll('.skill-card, .stack-category-card, .project-item, .timeline-item');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedEls.forEach(el => {
+      el.classList.add('fade-up');
+      fadeObserver.observe(el);
+    });
   </script>
 </body>
 

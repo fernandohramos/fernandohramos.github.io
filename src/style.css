@@ -8,35 +8,11 @@
   --color-primary: 243.98 89.25% 63.53%;
 
   background-color: hsl(var(--color-background));
-
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;*/
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
 }
 
 html,
 body {
+  margin: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -44,3 +20,149 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/* ─── Custom scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--color-background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--color-primary) / 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--color-primary) / 0.6); }
+
+/* ─── Selection ────────────────────────────────────────────── */
+::selection { background: hsl(var(--color-primary) / 0.3); color: white; }
+
+@layer components {
+
+  /* ─── Nav links ─────────────────────────────────────────── */
+  .nav-link {
+    @apply text-zinc-400 text-sm font-medium hover:text-white transition-colors relative;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 w-0 h-px bg-primary transition-all duration-300;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .mobile-nav-link {
+    @apply text-zinc-300 text-base font-medium py-2 px-3 rounded-lg hover:bg-white/5 hover:text-white transition-colors block;
+  }
+
+  /* ─── Watermark text ────────────────────────────────────── */
+  .watermark-text {
+    @apply text-[clamp(4rem,18vw,14rem)] font-black uppercase leading-none tracking-widest select-none pointer-events-none;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+    white-space: nowrap;
+  }
+
+  /* ─── Grid background ───────────────────────────────────── */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ─── Skill cards (About section) ─────────────────────── */
+  .skill-card {
+    @apply p-5 rounded-xl border border-white/10 bg-white/5 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300;
+  }
+
+  /* ─── Stack category cards ─────────────────────────────── */
+  .stack-category-card {
+    @apply p-6 rounded-xl border border-white/10 bg-white/5 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300;
+  }
+
+  /* ─── Stack icon items ──────────────────────────────────── */
+  .stack-icon-item {
+    @apply relative w-16 h-16 p-3.5 rounded-full transition-all duration-500
+           hover:bg-zinc-300/10 hover:scale-125 cursor-pointer;
+  }
+  .stack-icon-item::before {
+    content: '';
+    @apply absolute top-[10%] right-[10%] bottom-[10%] left-[10%] blur-lg -z-10 opacity-0 transition-opacity duration-300 rounded-full;
+  }
+  .stack-icon-item:hover::before { opacity: 1; }
+
+  /* ─── Project list items ────────────────────────────────── */
+  .project-item {
+    @apply flex items-center justify-between gap-4 p-4 sm:p-5 rounded-xl border border-white/10 bg-white/5
+           hover:border-white/20 transition-all duration-300 cursor-pointer;
+  }
+
+  .project-tag {
+    @apply px-2 py-0.5 text-xs rounded bg-white/5 border border-white/10 text-zinc-500;
+  }
+
+  .project-link-btn {
+    @apply p-2 rounded-lg border border-white/10 text-zinc-500 hover:text-white hover:border-white/30 transition-colors;
+  }
+
+  /* ─── Timeline ──────────────────────────────────────────── */
+  .timeline-item {
+    @apply relative pl-6 border-l border-white/10;
+  }
+
+  .timeline-dot {
+    @apply absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-primary border-2 border-background;
+  }
+
+  /* ─── Cert badges ───────────────────────────────────────── */
+  .cert-badge {
+    @apply px-2.5 py-1 text-xs rounded-full border border-primary/30 text-primary bg-primary/10;
+  }
+
+  /* ─── Form inputs ───────────────────────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white text-sm
+           placeholder:text-zinc-600 focus:outline-none focus:border-primary/50 focus:bg-primary/5
+           transition-colors;
+  }
+
+  /* ─── Social buttons ────────────────────────────────────── */
+  .social-btn {
+    @apply p-2.5 rounded-lg border border-white/10 text-zinc-400 hover:text-white hover:border-primary/40
+           hover:bg-primary/10 transition-all;
+  }
+
+  /* ─── Hero tech pills ───────────────────────────────────── */
+  .pill-primary {
+    @apply px-2.5 py-1 rounded border border-primary/30 bg-primary/10 text-primary;
+  }
+  .pill-default {
+    @apply px-2.5 py-1 rounded border border-white/10 bg-white/5 text-zinc-400;
+  }
+
+  /* ─── Fade-up animation ─────────────────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* ─── Staggered animation delays for grids ─────────────────── */
+.skill-card:nth-child(1),
+.stack-category-card:nth-child(1) { transition-delay: 0ms; }
+.skill-card:nth-child(2),
+.stack-category-card:nth-child(2) { transition-delay: 80ms; }
+.skill-card:nth-child(3),
+.stack-category-card:nth-child(3) { transition-delay: 160ms; }
+.skill-card:nth-child(4),
+.stack-category-card:nth-child(4) { transition-delay: 240ms; }
+
+.project-item:nth-child(1) { transition-delay: 0ms; }
+.project-item:nth-child(2) { transition-delay: 60ms; }
+.project-item:nth-child(3) { transition-delay: 120ms; }
+.project-item:nth-child(4) { transition-delay: 180ms; }
+.project-item:nth-child(5) { transition-delay: 240ms; }
+.project-item:nth-child(6) { transition-delay: 300ms; }
+
+.timeline-item:nth-child(1) { transition-delay: 0ms; }
+.timeline-item:nth-child(2) { transition-delay: 100ms; }
+.timeline-item:nth-child(3) { transition-delay: 200ms; }
